@@ -14,6 +14,8 @@ import TestimonialCard from 'sections/testimonial';
 import SecurePayment from 'sections/secure-payment';
 import Package from 'sections/package';
 import Faq from 'sections/faq';
+import AboutUs from 'sections/about-us';
+import Gallery from 'sections/gallery';
 
 export default function IndexPage() {
   return (
@@ -31,6 +33,7 @@ export default function IndexPage() {
           <SecurePayment />
           <Package />
           <Faq />
+          <AboutUs />
         </Layout>
       </StickyProvider>
     </ThemeProvider>
