@@ -3,8 +3,8 @@ import { jsx, Container, Flex, Button } from "theme-ui";
 import { keyframes } from "@emotion/core";
 import { Link } from "react-scroll";
 import Logo from "components/logo";
-import LogoDark from "assets/logo-dark.svg";
-import LogoWhite from "assets/logo.svg";
+import LogoDark from "assets/AR_Logo_clear.png";
+import LogoWhite from "assets/AR_Logo_clear.png";
 import { DrawerProvider } from "../../contexts/drawer/drawer.provider";
 import MobileDrawer from "./mobile-drawer";
 import menuItems from "./header.data";
@@ -14,7 +14,10 @@ export default function Header({ className }) {
     <DrawerProvider>
       <header sx={styles.header} className={className} id="header">
         <Container sx={styles.container}>
-          <Logo src={className === "sticky" ? LogoDark : LogoWhite} />
+          <Logo
+            sx={styles.logo}
+            src={className === "sticky" ? LogoDark : LogoWhite}
+          />
 
           <Flex as="nav" sx={styles.nav}>
             {menuItems.map(({ path, label }, i) => (
@@ -60,6 +63,10 @@ const positionAnim = keyframes`
 `;
 
 const styles = {
+  logo: {
+    width: "60px",
+    height: "60px",
+  },
   header: {
     color: "white",
     fontWeight: "normal",

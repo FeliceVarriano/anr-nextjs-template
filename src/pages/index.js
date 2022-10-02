@@ -7,7 +7,7 @@ import Layout from "components/layout";
 import Banner from "sections/banner";
 import TestimonialCard from "sections/testimonial";
 import Faq from "sections/faq";
-import AboutUs from "sections/about-us";
+import AboutUs from "sections/aboutus";
 import Gallery from "sections/gallery";
 import Pricing from "components/pricing";
 import OurProcess from "sections/our-process";
@@ -17,7 +17,7 @@ export default function IndexPage() {
     <ThemeProvider theme={theme}>
       <StickyProvider>
         <Layout>
-          <SEO title="Startup Landing 004" />
+          <SEO title="A&R Streaming" />
           <Banner />
           <AboutUs />
           <OurProcess />

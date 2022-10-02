@@ -13,45 +13,45 @@ import Chat from "assets/feature/chat.svg";
 const data = [
   {
     id: 1,
-    imgSrc: Smart,
-    altText: "Smart",
-    title: "Smart Features",
-    text: "Get your blood tests delivered at let home collect sample from the victory of the managements.",
+    imgSrc: Chat,
+    altText: "Meet & Greet!",
+    title: "Meet & Greet!",
+    text: "we like to meet with the client (you) and discuss the details of your event from day one until the day of the event itself.",
   },
   {
     id: 2,
     imgSrc: Winner,
-    altText: "Performance",
-    title: "Fast Performance",
-    text: "Get your blood tests delivered at let home collect sample from the victory of the managements.",
+    altText: "Requirements",
+    title: "Requirements",
+    text: "We will ask you a few questions to determine some things about your event such as: location, scale, and general overview of the event itself and what you would like covered.",
   },
   {
     id: 3,
-    imgSrc: Cloud,
-    altText: "Content",
-    title: "Unlimited Content",
-    text: "Get your blood tests delivered at let home collect sample from the victory of the managements.",
+    imgSrc: Chat,
+    altText: "Package Review",
+    title: "Package Review",
+    text: "Once we have determined that we can fulfill the needs of your event, we will go over our packages to determine what works best for you and your event.",
   },
   {
     id: 4,
-    imgSrc: Setting,
-    altText: "Customization",
-    title: "Unlimited Customization",
-    text: "Get your blood tests delivered at let home collect sample from the victory of the managements.",
+    imgSrc: Design,
+    altText: "Scouting the location",
+    title: "Scouting the location",
+    text: "Even if we are familiar with a space, we would like to schedule a meeting with you at the location where the event will take place.",
   },
   {
     id: 5,
-    imgSrc: Design,
-    altText: "Productivity",
-    title: "Boost Productivity",
-    text: "Get your blood tests delivered at let home collect sample from the victory of the managements.",
+    imgSrc: Smart,
+    altText: "Details, details, details.",
+    title: "Details, details, details.",
+    text: "Here, by going over the key points of the event, we will work with you to determine the main focal points of your event and how the camera(s) will be best positioned to capture them.",
   },
   {
     id: 6,
-    imgSrc: Chat,
-    altText: "Support",
-    title: "Customer Support",
-    text: "Get your blood tests delivered at let home collect sample from the victory of the managements.",
+    imgSrc: Winner,
+    altText: "Your big day!",
+    title: "Your big day!",
+    text: "Enjoy your day, and we'll ensure your loved ones can too!",
   },
 ];
 
@@ -59,10 +59,7 @@ export default function OurProcess() {
   return (
     <section sx={{ variant: "section.feature" }}>
       <Container>
-        <SectionHeader
-          slogan="Quality features"
-          title="Meet exciting feature of app"
-        />
+        <SectionHeader slogan="Our Process" title="See how we operate!" />
 
         <Grid sx={styles.grid}>
           {data.map((item) => (
