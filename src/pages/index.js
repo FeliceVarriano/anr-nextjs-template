@@ -11,6 +11,7 @@ import AboutUs from "sections/aboutus";
 import Gallery from "sections/gallery";
 import Pricing from "components/pricing";
 import OurProcess from "sections/our-process";
+import { ContactComponent } from "sections/contact-component";
 
 export default function IndexPage() {
   return (
@@ -24,6 +25,7 @@ export default function IndexPage() {
           <TestimonialCard />
           <Gallery />
           <Pricing />
+          <ContactComponent />
           <Faq />
         </Layout>
       </StickyProvider>
