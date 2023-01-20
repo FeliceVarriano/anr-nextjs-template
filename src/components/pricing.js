@@ -5,152 +5,289 @@ import { jsx, Grid, Box, Container, Flex, Button } from "theme-ui";
 import SectionHeading from "components/section-header";
 import PriceCard from "components/cards/price-card-b";
 import { rgba } from "polished";
+import Carousel from "react-multi-carousel";
 import { keyframes } from "@emotion/core";
-
+import ButtonGroup from "components/button-group";
 import userIcon from "assets/two-users.png";
 import userIcon2 from "assets/three-users.png";
 
-const monthlyPricing = [
+const corePackagePricing = [
   {
     id: 1,
     icon: userIcon,
-    title: "Starter Pack",
-    amount: 49.99,
+    title: "Basic Package",
+    amount: 900,
     isRecommended: false,
     features: [
       {
         id: 1,
         isAvailable: true,
-        title: "Ultimate access to all course, exercises and assessments",
+        title: "Stationary Camera: 1",
       },
       {
         id: 2,
         isAvailable: true,
-        title: `Free access for all kind of exercise corrections with downloads.`,
+        title: `Stream/Audio Operator + Sound Board: 1`,
       },
       {
         id: 3,
         isAvailable: true,
-        title: `Total assessment corrections with free download access system`,
+        title: `Raw Video Output (Copy of Recording): 1`,
       },
       {
         id: 4,
         isAvailable: false,
-        title: `Unlimited download of courses on the mobile app contents`,
+        title: `Discount for Multiple Events (multiple days): -$100/day. ONE CAMERA: STATIONARY POINTING IN ONE DIRECTION (MINIMAL MOVEMENT) STREAMING WITH AUDIO. ONE VIDEOGRAPHER.`,
       },
     ],
   },
   {
     id: 2,
     icon: userIcon2,
-    title: "Family Pack",
-    amount: 89.99,
+    title: "The Premium Package",
+    amount: 1600,
     isRecommended: true,
     features: [
       {
         id: 1,
         isAvailable: true,
-        title: "Ultimate access to all course, exercises and assessments",
+        title: "Stationary Camera: 1",
       },
       {
         id: 2,
         isAvailable: true,
-        title: `Free access for all kind of exercise corrections with downloads.`,
+        title: `Stream/Audio Operator + Sound Board: 1`,
       },
       {
         id: 3,
         isAvailable: true,
-        title: `Total assessment corrections with free download access system`,
+        title: `Camera Person + Camera: 1`,
       },
       {
         id: 4,
         isAvailable: true,
-        title: `Unlimited download of courses on the mobile app contents`,
+        title: `Raw Video Output (Copy of Recording): 1`,
+      },
+      {
+        id: 5,
+        isAvailable: true,
+        title: `Discount for Multiple Events (multiple days): -$300/day. TWO CAMERAS: ONE STATIONARY POINTING IN ONE DIRECTION (MINIMAL MOVEMENT) AND ONE CAMERA WITH MULTI-DIRECTIONAL MOVEMENT. STREAMING WITH AUDIO. TWO VIDEOGRAPHERS.`,
+      },
+    ],
+  },
+  {
+    id: 3,
+    icon: userIcon2,
+    title: "The Ultimate Package",
+    amount: 2000,
+    isRecommended: false,
+    features: [
+      {
+        id: 1,
+        isAvailable: true,
+        title: "Stationary Camera: 2",
+      },
+      {
+        id: 2,
+        isAvailable: true,
+        title: `Stream/Audio Operator + Sound Board: 1`,
+      },
+      {
+        id: 3,
+        isAvailable: true,
+        title: `Camera Person + Camera: 1`,
+      },
+      {
+        id: 4,
+        isAvailable: true,
+        title: `Raw Video Output (Copy of Recording): 1`,
+      },
+      {
+        id: 5,
+        isAvailable: true,
+        title: `Discount for Multiple Events (multiple days): -$400/day. THREE CAMERAS: TWO STATIONARY POINTING IN TWO DIRECTIONS (MINIMAL MOVEMENT), AND ONE CAMERA WITH MULTI-DIRECTIONAL MOVEMENT. STREAMING WITH AUDIO. TWO VIDEOGRAPHERS.`,
       },
     ],
   },
 ];
 
-const annualPricing = [
+const comprehensivePackagePricing = [
   {
     id: 1,
-    icon: userIcon,
-    title: "Starter Pack",
-    amount: 49.99 * 12 - 10,
+    icon: userIcon2,
+    title: "The Basic Package",
+    amount: 1300,
     isRecommended: false,
     features: [
       {
-        id: 2,
-        isAvailable: true,
-        title: `Free access for all kind of exercise corrections with downloads.`,
-      },
-      {
         id: 1,
         isAvailable: true,
-        title: "Ultimate access to all course, exercises and assessments",
+        title: `Stand Microphone: 2`,
+      },
+      {
+        id: 2,
+        isAvailable: true,
+        title: `Lapel Microphone: 4`,
       },
       {
         id: 3,
         isAvailable: true,
-        title: `Total assessment corrections with free download access system`,
+        title: "Stationary Camera: 1",
       },
       {
         id: 4,
-        isAvailable: false,
-        title: `Unlimited download of courses on the mobile app contents`,
+        isAvailable: true,
+        title: `Stream/Audio Operator + Sound Board: 1`,
+      },
+      {
+        id: 5,
+        isAvailable: true,
+        title: `Raw Video Output (Copy of Recording): 1`,
+      },
+      {
+        id: 6,
+        isAvailable: true,
+        title: `Discount for Multiple Events (multiple days): -$100/day. ONE CAMERA: STATIONARY POINTING IN ONE DIRECTION (MINIMAL MOVEMENT) STREAMING WITH AUDIO. ONE VIDEOGRAPHER.`,
+      },
+      {
+        id: 7,
+        isAvailable: true,
+        title: `Discount for Multiple Events (multiple days): -$400/day. THREE CAMERAS: TWO STATIONARY POINTING IN TWO DIRECTIONS (MINIMAL MOVEMENT), AND ONE CAMERA WITH MULTI-DIRECTIONAL MOVEMENT. STREAMING WITH AUDIO. TWO VIDEOGRAPHERS.`,
       },
     ],
   },
   {
     id: 2,
-    icon: userIcon2,
-    title: "Family Pack",
-    amount: 89.99 * 12 - 10,
-    isRecommended: true,
+    icon: userIcon,
+    title: "The Premium Package",
+    amount: 2000,
+    isRecommended: false,
     features: [
-      {
-        id: 4,
-        isAvailable: true,
-        title: `Unlimited download of courses on the mobile app contents`,
-      },
       {
         id: 2,
         isAvailable: true,
-        title: `Free access for all kind of exercise corrections with downloads.`,
+        title: `Stand Microphone: 2`,
       },
       {
         id: 1,
         isAvailable: true,
-        title: "Ultimate access to all course, exercises and assessments",
+        title: "Lapel Microphone: 4",
       },
       {
         id: 3,
         isAvailable: true,
-        title: `Total assessment corrections with free download access system`,
+        title: `Stationary Camera: 1`,
+      },
+      {
+        id: 4,
+        isAvailable: false,
+        title: `Camera Person + Camera: 1`,
+      },
+      {
+        id: 5,
+        isAvailable: false,
+        title: `Stream/Audio Operator + Sound Board: 1`,
+      },
+      {
+        id: 6,
+        isAvailable: false,
+        title: `Raw Video Output (Copy of Recording): 1`,
+      },
+      {
+        id: 7,
+        isAvailable: false,
+        title: `Discount for Multiple Events (multiple days): -$300/day. TWO CAMERAS: ONE STATIONARY POINTING IN ONE DIRECTION (MINIMAL MOVEMENT) AND ONE CAMERA WITH MULTI-DIRECTIONAL MOVEMENT. STREAMING WITH AUDIO. TWO VIDEOGRAPHERS.`,
+      },
+    ],
+  },
+  {
+    id: 3,
+    icon: userIcon2,
+    title: "The Ultimate Package",
+    amount: 2400,
+    isRecommended: true,
+    features: [
+      {
+        id: 1,
+        isAvailable: true,
+        title: `Stand Microphone: 2`,
+      },
+      {
+        id: 2,
+        isAvailable: true,
+        title: `Lapel Microphone: 4`,
+      },
+      {
+        id: 3,
+        isAvailable: true,
+        title: "Stationary Camera: 2",
+      },
+      {
+        id: 4,
+        isAvailable: true,
+        title: `Camera Person + Camera: 1`,
+      },
+      {
+        id: 5,
+        isAvailable: true,
+        title: `Stream/Audio Operator + Sound Board: 1`,
+      },
+      {
+        id: 6,
+        isAvailable: true,
+        title: `Raw Video Output (Copy of Recording): 1`,
+      },
+      {
+        id: 7,
+        isAvailable: true,
+        title: `Discount for Multiple Events (multiple days): -$400/day. THREE CAMERAS: TWO STATIONARY POINTING IN TWO DIRECTIONS (MINIMAL MOVEMENT), AND ONE CAMERA WITH MULTI-DIRECTIONAL MOVEMENT. STREAMING WITH AUDIO. TWO VIDEOGRAPHERS.`,
       },
     ],
   },
 ];
+
+const responsive = {
+  desktop: {
+    breakpoint: { max: 3000, min: 1619 },
+    items: 1,
+    slidesToSlide: 1, // optional, default to 1.
+  },
+  laptop: {
+    breakpoint: { max: 1619, min: 1024 },
+    items: 1,
+    slidesToSlide: 1, // optional, default to 1.
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 640 },
+    items: 1,
+    slidesToSlide: 1, // optional, default to 1.
+  },
+  mobile: {
+    breakpoint: { max: 639, min: 0 },
+    items: 1,
+    slidesToSlide: 1, // optional, default to 1.
+  },
+};
 
 const Pricing = () => {
   const [plan, setPlan] = useState({
-    active: "monthly",
-    data: monthlyPricing,
+    active: "core",
+    data: corePackagePricing,
   });
 
   const handlePlan = (plan) => {
-    if (plan === "monthly") {
+    if (plan === "core") {
       setPlan({
         ...plan,
-        active: "monthly",
-        data: monthlyPricing,
+        active: "core",
+        data: corePackagePricing,
       });
     }
-    if (plan === "yearly") {
+    if (plan === "comprehensive") {
       setPlan({
         ...plan,
-        active: "yearly",
-        data: annualPricing,
+        active: "comprehensive",
+        data: comprehensivePackagePricing,
       });
     }
   };
@@ -160,30 +297,60 @@ const Pricing = () => {
       <Container>
         <SectionHeading
           sx={styles.heading}
-          slogan="Pricing plan"
-          title="What deal suit you perfect"
+          slogan="Pricing plans"
+          title="What deals suit you perfectly?"
         />
         <Flex sx={styles.priceSwitcher}>
           <Button
             variant="text"
-            className={plan?.active === "monthly" ? "" : "active"}
-            onClick={() => handlePlan("monthly")}
+            className={plan?.active === "core" ? "" : "active"}
+            onClick={() => handlePlan("core")}
           >
-            Monthly Plan
+            Core Plans
           </Button>
           <Button
             variant="text"
-            className={plan?.active === "yearly" ? "" : "active"}
-            onClick={() => handlePlan("yearly")}
+            className={plan?.active === "comprehensive" ? "" : "active"}
+            onClick={() => handlePlan("comprehensive")}
           >
-            Annual Plan
+            Comprehensive Plans
           </Button>
         </Flex>
-        <Grid sx={styles.grid}>
+        {/* <Grid sx={styles.grid}>
           {plan?.data?.map((price, index) => (
             <PriceCard price={price} key={`${plan.active}-${index}`} />
           ))}
-        </Grid>
+        </Grid> */}
+        <Carousel
+          additionalTransfrom={0}
+          arrows={false}
+          autoPlaySpeed={3000}
+          centerMode={false}
+          className=""
+          containerClass="carousel-container"
+          customButtonGroup={<ButtonGroup />}
+          dotListClass=""
+          draggable
+          focusOnSelect={false}
+          infinite={true}
+          itemClass=""
+          keyBoardControl
+          minimumTouchDrag={80}
+          renderButtonGroupOutside
+          renderDotsOutside={false}
+          responsive={responsive}
+          showDots={false}
+          sliderClass=""
+          slidesToSlide={1}
+        >
+          {plan?.data?.map((price, index) => (
+            <PriceCard
+              sx={styles.reviewCard}
+              price={price}
+              key={`${plan.active}-${index}`}
+            />
+          ))}
+        </Carousel>
       </Container>
     </Box>
   );
@@ -211,6 +378,70 @@ const fadeIn2 = keyframes`
 `;
 
 const styles = {
+  reviewCard: {
+    boxShadow: "0px 0px 1px rgba(38, 78, 118, 0.35)",
+    transition: "all 0.3s",
+    borderRadius: "6px",
+    p: [
+      "30px 20px 35px",
+      "30px 25px 35px",
+      "30px 20px 35px",
+      "35px 30px 40px 40px",
+      "30px 30px 35px",
+      "35px 30px 40px 40px",
+    ],
+    bg: "white",
+    textAlign: "left",
+    m: [
+      "28px 5px 30px 5px",
+      "28px 20px 30px 20px",
+      "28px 15px 30px 15px",
+      "28px 15px 30px 15px",
+      "30px 20px 40px",
+    ],
+    "&:hover": {
+      boxShadow: "0px 6px 47px rgba(38, 78, 118, 0.1)",
+    },
+    ".rating": {
+      mb: [1, null, null, 2],
+      ul: {
+        pl: 0,
+        listStyle: "none",
+        mb: 0,
+        display: "flex",
+      },
+      svg: {
+        marginRight: "2px",
+        "&:last-of-type": {
+          marginRight: 0,
+        },
+      },
+      ".star": {
+        color: "yellow",
+        mr: "1px",
+      },
+      ".star-o": {
+        color: "#ddd",
+        mr: "1px",
+      },
+    },
+    ".card-footer": {
+      display: "flex",
+      alignItems: "center",
+      marginTop: [5, null, null, "33px"],
+      ".image": {
+        flexShrink: 0,
+        mr: [3, null, null, 4],
+        display: "flex",
+        img: {
+          width: "55px",
+          height: "55px",
+          borderRadius: "50%",
+          objectFit: "cover",
+        },
+      },
+    },
+  },
   section: {
     pt: [60],
     pb: [100, 100, 100, 80],

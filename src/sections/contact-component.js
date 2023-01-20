@@ -2,7 +2,7 @@ import emailjs from "emailjs-com";
 import styled, { createGlobalStyle, css } from "styled-components";
 import SectionHeading from "../components/section-header";
 
-export const ContactComponent = () => {
+const ContactComponent = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
@@ -80,6 +80,8 @@ export const ContactComponent = () => {
     </>
   );
 };
+
+export default ContactComponent;
 
 const styles = {
   heading: {

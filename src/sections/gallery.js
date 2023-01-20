@@ -50,9 +50,6 @@ const Gallery = () => {
             <GalleryCard key={item.id} item={item} />
           ))}
         </Box>
-        <Button variant="muted" sx={styles.button}>
-          Explore More <RiArrowRightSLine size="20px" />
-        </Button>
       </Container>
     </Box>
   );
